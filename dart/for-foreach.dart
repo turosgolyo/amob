@@ -51,4 +51,8 @@ void main() {
     print("Adjon meg egy szamot: ");
     String temp = stdin.readLineSync()!;
     List<int> numbers = int.parse(temp.split(""));
+    int sum = 0;
+    numbers.forEach((number) {
+        
+    })
 }
