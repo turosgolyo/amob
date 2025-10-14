@@ -3,6 +3,8 @@ void main() {
   print(isDividable(2, 3));
   print(percent(30, 10));
   print(grade(100, -60));
+  print('1-tol 5-ig osszeg: ' + gausSum(25).toString());
+  print('1-tol 5-ig osszeg: ${gausList(5)}');
 }
 
 int faktorial(int num) {
@@ -52,4 +54,22 @@ String vowelUpper(String text) {
 
   characters.forEach((character) => {if (vowels.contains(character)) {}});
   return "";
+}
+
+// int gausSum(int num){
+//   int sum = 0;
+//   for(int i = 1; i <= num; i++){
+//     sum += i;
+//   }
+//   return sum;
+// }
+
+int gausSum(int num) => (((1 + num) * num ) ~/ 2);
+
+List<int> gausList(int num){
+  List<int> gausNumbers = [1];
+  for(int i = 2; i <= num; i++){
+    gausNumbers.add(i + gausNumbers.last);
+  }
+  return gausNumbers;
 }
