@@ -1,7 +1,7 @@
 import "dart:io";
 import "dart:math";
 
-void main() {
+Future<void> main() async {
   File file = File('felszin_tpont.txt');
   List<Map<String, Object>> kraterek = [];
   List<String> filetartalom = file.readAsLinesSync();
@@ -96,4 +96,18 @@ void main() {
       }
     }
   }
+
+  File kimenet = File('terulet.txt');
+  const piErtek = 3.14;
+
+  String tartalom = '';
+  for (var krater in kraterek) {
+    double r = krater['r'] as double;
+    double terulet = piErtek * pow(r, 2);
+
+    tartalom += '${terulet.toStringAsFixed(2)}\t${krater['nev']}\n';
+  }
+
+  await kimenet.writeAsString(tartalom);
+  print('8. feladat: A terulet.txt fájl elkészült.');
 }
